@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KT1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <style>
+        body {     
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  .header { 
+    display: flex;    
+    flex-direction: baseline;
+    justify-content: space-between;    
+    padding: 50px;
+  }
+  .logo {    
+     font-size: 30px;
+  }
+  .right-header {     
+    font-size: 30px;
+  }
+  .center-text {     
+    display: flex;
+    justify-content: center;   
+    align-items: center; 
+    font-size: 50px;
+  }
+  .center-text1 {     
+    display: flex;
+    justify-content: center;    
+    text-align: center;
+    font-size: 30px;    
+    padding: 20px;
+    letter-spacing: 0.1ex;    
+    line-height: 50px;
+  }
+  .center-text2 {     
+    display: flex;
+    justify-content: center;   
+    align-items: center;
+    font-size: 30px;
+  }
+  
+  a {
+    padding-left: 10px;    
+    text-decoration-line: underline;
+    color: black;    
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 5px;
+  }
+  
+  .main { 
+    display: flex;    
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 50px;
+  }
+  
+  .block1, .block2, .block3, .block4, .block5, .block6 { 
+    display: flex;  
+    justify-content: center;
+    align-items: center;    
+    height: 300px;
+    width: 300px;
+    margin: 10px;    
+    font-size: 30px;
+    color: white;
+    transition: transform 0.3s, box-shadow 0.3s;    
+    text-align: center;
+  }
+  .block1:hover, .block2:hover, .block3:hover, .block4:hover, .block5:hover, .block6:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);}
+  .block1 { 
+    background-color: #4CAF50; 
+  }
+  .block2 { 
+    background-color: #FFA500; 
+  }
+  .block3 {     background-color: #2196F3; 
+  }
+  .block4 {     background-color: yellowgreen; 
+  }
+  .block5 {     background-color: purple; 
+  }
+  .block6 {     background-color: red; 
+  }
+  .footer {
+    text-align: center;  
+    background-color: #333333;
+    color: #ffffff;   
+    padding: 20px;
+  }
+  .footer p {    margin: 20px 0;
+  }
+  .footer a {  
+      color: #ccccff;
+    text-decoration: none; 
+       font-weight: bold;
+  }
+  .footer a:hover {
+    color: #ffcc00; }
+  
+  @media screen and (max-width: 768px) {   
+    .header {       
+       flex-direction: row;
+        justify-content: space-between;  
+        padding: 20px;
+    }
+      .logo, .right-header {
+        font-size: 24px;  
+        }
+    .center-text {        font-size: 30px;
+    }
+    .center-text1 {        font-size: 20px;
+    }
+    .center-text2 {        font-size: 20px;
+    }
+  
+    .main {      
+        flex-direction: row;
+        flex-wrap: nowrap;  
+        justify-content: space-evenly;
+    }
+      .block1, .block2, .block3, .block4, .block5, .block6 {
+        width: 150px;   
+       height: 150px;
+        font-size: 18px;    
+      }
+  
+    .block1, .block2, .block3, .block4, .block5, .block6 {    
+          flex: 1 1 16%; 
+    }
+  }
+
+
+
+
+  @media screen and (max-width: 1024px) {
+    .header {
+      padding: 20px;
+      flex-direction: column;
+      align-items: center;
+    }
+    .logo, .right-header {
+      font-size: 26px;
+      text-align: center;
+    }
+    .center-text {
+      font-size: 40px;
+    }
+    .center-text1, .center-text2 {
+      font-size: 24px;
+      line-height: 1.5;
+    }
+    .main {
+      flex-direction: column;
+      align-items: center;
+      height: 500px;
+    }
+    .block1, .block2, .block3, .block4, .block5, .block6 {
+      width: 50%; /* Ширина блока - почти вся ширина контейнера */
+      height: 50%;
+      margin: 10px 0; /* Отступы между блоками */
+      font-size: 20px;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .header {
+      padding: 15px;
+      flex-direction: column;
+      align-items: center;
+    }
+    .logo, .right-header {
+      font-size: 20px;
+      text-align: center;
+    }
+    .center-text {
+      font-size: 30px;
+      text-align: center;
+    }
+    .center-text1, .center-text2 {
+      font-size: 18px;
+      line-height: 1.4;
+      padding: 10px;
+    }
+    .main {
+      flex-direction: column;
+      align-items: center;
+    }
+    .block1, .block2, .block3, .block4, .block5, .block6 {
+      width: 50%; 
+      height: auto;
+      font-size: 18px;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .header {
+      flex-direction: column;
+      padding: 10px;
+    }
+    .logo, .right-header {
+      font-size: 18px;
+      text-align: center;
+    }
+    .center-text {
+      font-size: 24px;
+      text-align: center;
+    }
+    .center-text1, .center-text2 {
+      font-size: 16px;
+      line-height: 1.4;
+      padding: 5px;
+    }
+    .main {
+      flex-direction: column;
+      align-items: center;
+    }
+    .block1, .block2, .block3, .block4, .block5, .block6 {
+      width: 50%;
+      height: 50%;
+      margin: 5px 0; 
+      font-size: 14px;
+    }
+    .footer {
+      font-size: 14px;
+      padding: 10px;
+    }
+  }
+    </style>
+    <div class = "header">
+    <div class="logo">Logo</div>
+    <div class="right-header">Home</div>
+    </div>
+
+    <div class = "center-text">We'll help manage your business</div>
+    <div class = "center-text1">
+    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore <br>
+    eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,<br>
+    sunt in culpa</p>
+    </div>
+    <div class = "center-text2">
+        <p>Images from</p>
+        <a href="https://www.freepik.com/photos/business" >Freepik</a>
+    </div>
+    <div class = "main">
+    <div class = "block1"><p>Consultations</p></div>
+    <div class = "block2"><p>Strategy</p></div>
+    <div class = "block3"><p>Investment</p></div>
+</div> 
+<div class = "main">
+    <div class = "block4"><p>Marketing</p></div>
+    <div class = "block5"><p>Startups</p></div>
+    <div class = "block6"><p>Anti-Crisis</p></div>
+</div>
+<footer class="footer">
+    <p>Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
+    <p><a href="#">HTML Template</a> created with <a href="#">Free Website Builder</a>.</p>
+</footer>
+</body>
+</html>
