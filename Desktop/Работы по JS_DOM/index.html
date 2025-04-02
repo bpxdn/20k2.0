@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Информация о котиках</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            text-align: center;
+        }
+        .cat-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .cat-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 16px;
+            width: 280px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .cat-card:hover {
+            transform: scale(1.05);
+        }
+        .cat-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .cat-card h2 {
+            margin: 10px 0;
+            font-size: 20px;
+            color: #333;
+        }
+        .cat-card p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #555;
+        }
+        .favourite {
+            color: #e44d26;
+            font-weight: bold;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Наши прекрасные котики 😺</h1>
+    <div class="cat-container" id="catContainer"></div>
+
+    <script>
+        const cats = [
+            { "id": 1, "name": "Лара", "img_link": "https://www.friendforpet.ru/api/sites/default/files/2021-09/167200DD-A44F-4845-8D4D-ACCFC180165A.jpeg", "age": 8, "rate": 7, "favourite": false, "description": "Лара – шотландская вислоухая, у нее остеохондродисплазия. Очень ласковая и контактная." },
+            { "id": 2, "name": "Базиль", "img_link": "https://www.friendforpet.ru/api/sites/default/files/2022-01/064AEBCB-45EC-4CE7-AB13-C65F10F00B7B.jpeg", "age": 2, "rate": 10, "favourite": false, "description": "Активный и ласковый. Любит играть и мурчать рядом с людьми." },
+            { "id": 3, "name": "Риш", "img_link": "https://www.friendforpet.ru/api/sites/default/files/2022-01/_DM34706.JPG", "age": 1, "rate": 10, "favourite": true, "description": "Любит лесенки и канаты. Очень дружелюбный и аккуратный." },
+            { "id": 4, "name": "Элли", "img_link": "https://www.friendforpet.ru/api/sites/default/files/2022-01/1_25.jpg", "age": 4, "rate": 8, "favourite": false, "description": "Мягкая и добрая. Любит лакомства, но не сразу доверяет людям." },
+            { "id": 5, "name": "Чарли", "img_link": "https://www.friendforpet.ru/api/sites/default/files/2022-01/%D0%BB%D0%B5%D0%B2%D0%B83_%D0%B0%D0%BB%D0%B5%D0%BA%D1%81.jpg", "age": 1, "rate": 8, "favourite": false, "description": "Философ среди котов. Любит уединение, но ладит с животными." },
+            { "id": 6, "name": "Стефани", "img_link": "https://www.friendforpet.ru/api/sites/default/files/2022-01/4_30.jpg", "age": 6, "rate": 9, "favourite": false, "description": "Очень добродушная и общительная. Любит заботу и внимание." },
+            { "id": 7, "name": "Дуся", "img_link": "https://www.friendforpet.ru/api/sites/default/files/2022-02/B1444207-6EE3-4BA4-97F7-2F9666AE2F63.jpeg", "age": 1, "rate": 9, "favourite": false, "description": "Общительная и нежная. Обожает внимание и ласку." },
+            { "id": 8, "name": "Бруно", "img_link": "https://www.friendforpet.ru/api/sites/default/files/2022-01/IMG-20211223-WA0049.jpg", "age": 1, "rate": 10, "favourite": false, "description": "Энергичный и ласковый. Ладит с другими котами." },
+            { "id": 9, "name": "Светлячок", "img_link": "https://www.friendforpet.ru/api/sites/default/files/2022-01/%D1%81%D0%B2%D0%B5%D1%82%D0%BB%D1%8F%D1%87%D0%BE%D0%BA4_%D0%B0%D0%BB%D0%B5%D0%BA%D1%81.jpg", "age": 1, "rate": 9, "favourite": true, "description": "Нежный и добрый кот. Ладит с детьми и другими животными." }
+        ];
+
+        const catContainer = document.getElementById('catContainer');
+
+        cats.forEach(cat => {
+            const catCard = document.createElement('div');
+            catCard.className = 'cat-card';
+
+            const catImage = document.createElement('img');
+            catImage.src = cat.img_link;
+            catImage.alt = cat.name;
+
+            const catName = document.createElement('h2');
+            catName.textContent = cat.name;
+
+            const catAge = document.createElement('p');
+            catAge.textContent = `Возраст: ${cat.age} лет`;
+
+            const catRate = document.createElement('p');
+            catRate.textContent = `Рейтинг: ${cat.rate}/10`;
+
+            const catDescription = document.createElement('p');
+            catDescription.textContent = cat.description;
+
+            if (cat.favourite) {
+                const favouriteTag = document.createElement('p');
+                favouriteTag.className = 'favourite';
+                favouriteTag.textContent = '⭐ Любимчик';
+                catCard.appendChild(favouriteTag);
+            }
+
+            catCard.appendChild(catImage);
+            catCard.appendChild(catName);
+            catCard.appendChild(catAge);
+            catCard.appendChild(catRate);
+            catCard.appendChild(catDescription);
+
+            catContainer.appendChild(catCard);
+        });
+    </script>
+</body>
+</html>
