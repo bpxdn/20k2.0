@@ -343,6 +343,11 @@ main.normal > * {
     background-color: var(--white);
   }
 }
+
+.logo-menu {
+  width: 50%;
+}
+
 #menu_button {
   position: fixed;
   display: block;
@@ -471,6 +476,9 @@ form input[type="submit"]:hover {
   }
 }
 @media (max-width: 1024px) {
+  .logo-menu {
+    max-width: 30%;
+  }
   #menu_panel {
     bottom: -100vh;
     top: initial;
